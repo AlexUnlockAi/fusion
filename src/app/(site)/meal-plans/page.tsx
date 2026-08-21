@@ -44,13 +44,13 @@ export default function MealPlansPage() {
               {MEAL_PREP_GALLERY.map((item) => (
                 <div
                   key={item.image}
-                  className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl"
+                  className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-adinkra-ink-2"
                 >
                   <Image
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               ))}

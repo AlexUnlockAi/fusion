@@ -182,12 +182,12 @@ export default function HomePage() {
       <section className="border-y border-adinkra-cream/10 bg-adinkra-ink-2/40 py-24 sm:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-adinkra-ink-2">
               <Image
                 src="/images/chef-eric-blue-coat.jpeg"
                 alt="Chef Eric, founder of Adinkra Fusion Kitchen"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </Reveal>
@@ -224,7 +224,7 @@ export default function HomePage() {
             {GALLERY.map((item, i) => (
               <Reveal key={item.image} delay={0.06 * i}>
                 <div
-                  className={`relative overflow-hidden rounded-2xl ${
+                  className={`relative overflow-hidden rounded-2xl bg-adinkra-ink-2 ${
                     i === 1 ? "aspect-[3/4] sm:mt-8" : "aspect-[3/4]"
                   }`}
                 >
@@ -232,7 +232,7 @@ export default function HomePage() {
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    className="object-contain transition-transform duration-700 hover:scale-105"
                   />
                 </div>
               </Reveal>

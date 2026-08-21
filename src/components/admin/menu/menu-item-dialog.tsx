@@ -158,7 +158,7 @@ export function MenuItemDialog({
             <div className="flex items-center gap-3">
               {imageUrl && (
                 <div className="relative size-14 shrink-0 overflow-hidden rounded-lg border border-border">
-                  <Image src={imageUrl} alt="" fill className="object-cover" />
+                  <Image src={imageUrl} alt="" fill className="object-contain" />
                 </div>
               )}
               <input

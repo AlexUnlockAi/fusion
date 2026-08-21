@@ -27,7 +27,7 @@ export function MenuItemRow({
     <div className="flex items-center gap-4 border-b border-border py-3 last:border-none">
       <div className="relative size-12 shrink-0 overflow-hidden rounded-lg bg-muted">
         {item.image_url && (
-          <Image src={item.image_url} alt="" fill className="object-cover" />
+          <Image src={item.image_url} alt="" fill className="object-contain" />
         )}
       </div>
 

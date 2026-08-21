@@ -29,20 +29,20 @@ export default function AboutPage() {
         <Container className="grid items-start gap-14 lg:grid-cols-[0.85fr_1fr]">
           <Reveal>
             <div className="sticky top-28 space-y-6">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-adinkra-ink-2">
                 <Image
                   src="/images/chef-eric-african-print.jpeg"
                   alt="Chef Eric, founder of Adinkra Fusion Kitchen"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-adinkra-ink-2">
                 <Image
                   src="/images/gallery/chef-serving-event.jpeg"
                   alt="Chef Eric serving at a catered event"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>

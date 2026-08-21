@@ -26,7 +26,7 @@ export function Header() {
       <Container className="flex h-20 items-center justify-between">
         <Logo />
 
-        <nav className="hidden lg:flex items-center gap-7 font-heading text-sm font-medium tracking-wide uppercase">
+        <nav className="hidden xl:flex items-center gap-6 font-heading text-[0.8rem] font-medium uppercase">
           {NAV_LINKS.map((link) => {
             const active =
               link.href === "/"
@@ -76,7 +76,7 @@ export function Header() {
                   variant="outline"
                   size="icon"
                   aria-label="Open menu"
-                  className="border-adinkra-cream/20 bg-transparent hover:bg-adinkra-cream/10 hover:text-adinkra-gold"
+                  className="xl:hidden border-adinkra-cream/20 bg-transparent hover:bg-adinkra-cream/10 hover:text-adinkra-gold"
                 />
               }
             >

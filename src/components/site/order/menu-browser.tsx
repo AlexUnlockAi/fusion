@@ -40,12 +40,12 @@ export function MenuBrowser({
                 className="flex gap-4 rounded-2xl bg-adinkra-ink-2/50 p-4 ring-1 ring-adinkra-cream/10"
               >
                 {item.image_url && (
-                  <div className="relative size-20 shrink-0 overflow-hidden rounded-xl">
+                  <div className="relative size-20 shrink-0 overflow-hidden rounded-xl bg-adinkra-ink">
                     <Image
                       src={item.image_url}
                       alt={item.name}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 )}

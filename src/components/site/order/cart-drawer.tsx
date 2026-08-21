@@ -159,8 +159,8 @@ export function CartDrawer({
                   cart.items.map((item) => (
                     <div key={item.menuItemId} className="flex items-center gap-3">
                       {item.imageUrl && (
-                        <div className="relative size-14 shrink-0 overflow-hidden rounded-lg">
-                          <Image src={item.imageUrl} alt="" fill className="object-cover" />
+                        <div className="relative size-14 shrink-0 overflow-hidden rounded-lg bg-adinkra-ink">
+                          <Image src={item.imageUrl} alt="" fill className="object-contain" />
                         </div>
                       )}
                       <div className="min-w-0 flex-1">

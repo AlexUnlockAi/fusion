@@ -27,12 +27,12 @@ export default function CateringPage() {
       <section className="py-24 sm:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-adinkra-ink-2">
               <Image
                 src="/images/gallery/catering-poke-cups.jpeg"
                 alt="Ahi poke cups plated for a catering event"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </Reveal>
