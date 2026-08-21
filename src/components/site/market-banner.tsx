@@ -6,7 +6,7 @@ export function MarketBanner() {
   return (
     <div className="bg-adinkra-gold text-adinkra-ink">
       <Link
-        href="/contact"
+        href="/frisco-fresh-market"
         className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <MapPin className="size-3.5 shrink-0" />

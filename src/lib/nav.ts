@@ -9,6 +9,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Catering", href: "/catering" },
   { label: "Meal Plans", href: "/meal-plans" },
   { label: "Order", href: "/order" },
+  { label: "Frisco Market", href: "/frisco-fresh-market" },
   { label: "Events", href: "/events" },
   { label: "Contact", href: "/contact" },
 ];
