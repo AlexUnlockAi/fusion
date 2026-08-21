@@ -5,7 +5,6 @@ import { Container } from "@/components/site/container";
 import { Kicker } from "@/components/site/kicker";
 import { Reveal } from "@/components/site/reveal";
 import { TrustBadges } from "@/components/site/trust-badges";
-import { ShareButton } from "@/components/site/share-button";
 import { buttonVariants } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/nav";
 import { GALLERY, MARKET_INFO, SPECIALTIES, TESTIMONIALS } from "@/lib/content";
@@ -14,77 +13,82 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[92svh] items-end overflow-hidden">
+      <section className="relative overflow-hidden bg-adinkra-ink">
         <Image
-          src="/images/hero.jpg"
-          alt="Chef Eric plating a fusion dish"
+          src="/images/pattern.webp"
+          alt=""
           fill
-          priority
-          className="object-cover object-[70%_30%]"
+          aria-hidden
+          className="pointer-events-none select-none object-cover opacity-[0.05]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-adinkra-ink via-adinkra-ink/70 to-adinkra-ink/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-adinkra-ink/60 via-transparent to-transparent" />
-
-        <Container className="relative pb-20 pt-40 sm:pb-28">
-          <Reveal>
-            <Kicker>Ghanaian &amp; African Fusion &middot; DFW Metroplex</Kicker>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <p className="mt-5 font-script text-2xl leading-tight sm:text-3xl">
-              <span className="block text-adinkra-gold">Bold Flavors.</span>
-              <span className="block text-adinkra-gold">Fresh Ingredients.</span>
-              <span className="block text-adinkra-cream">
-                Made with Culture.
+        <Container className="relative grid items-center gap-12 pt-40 pb-20 sm:pb-28 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <Reveal>
+              <Kicker>Ghanaian &amp; African Fusion &middot; DFW Metroplex</Kicker>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <p className="mt-5 font-script text-2xl leading-tight sm:text-3xl">
+                <span className="block text-adinkra-gold">Bold Flavors.</span>
+                <span className="block text-adinkra-gold">Fresh Ingredients.</span>
+                <span className="block text-adinkra-cream">
+                  Made with Culture.
+                </span>
+              </p>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <h1 className="mt-4 font-headline text-5xl leading-[0.95] uppercase tracking-tight text-adinkra-cream sm:text-7xl">
+                Real Flavor.
+                <br />
+                Rooted in Culture.
+              </h1>
+              <span className="mt-6 flex items-center gap-2" aria-hidden>
+                <span className="size-2 rounded-full bg-adinkra-red" />
+                <span className="size-2 rounded-full bg-adinkra-gold" />
+                <span className="size-2 rounded-full bg-adinkra-gold" />
+                <span className="size-2 rounded-full bg-adinkra-green" />
               </span>
-            </p>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <h1 className="mt-4 max-w-3xl font-headline text-5xl leading-[0.95] uppercase tracking-tight text-adinkra-cream sm:text-7xl">
-              Real Flavor.
-              <br />
-              Rooted in Culture.
-            </h1>
-            <span className="mt-6 flex items-center gap-2" aria-hidden>
-              <span className="size-2 rounded-full bg-adinkra-red" />
-              <span className="size-2 rounded-full bg-adinkra-gold" />
-              <span className="size-2 rounded-full bg-adinkra-gold" />
-              <span className="size-2 rounded-full bg-adinkra-green" />
-            </span>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <p className="mt-6 max-w-xl text-lg text-adinkra-cream-muted">
-              {BUSINESS.chef} blends bold flavors, fresh ingredients, and
-              cultural heritage into unforgettable dishes &mdash; corporate
-              &amp; private catering, nutritionist-guided meal plans, and
-              weekend pickup across the DFW Metroplex.
-            </p>
-          </Reveal>
-          <Reveal delay={0.26}>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                href="/order"
-                className={buttonVariants({
-                  size: "lg",
-                  className:
-                    "h-12 rounded-lg bg-adinkra-green px-7 font-heading text-base uppercase tracking-wide text-adinkra-cream hover:bg-adinkra-green/90",
-                })}
-              >
-                View Menu
-              </Link>
-              <Link
-                href="/order"
-                className={buttonVariants({
-                  size: "lg",
-                  className:
-                    "h-12 rounded-lg bg-adinkra-gold px-7 font-heading text-base uppercase tracking-wide text-adinkra-ink hover:bg-adinkra-gold/90",
-                })}
-              >
-                Shop Pepper Sauces
-              </Link>
-              <ShareButton
-                title="Adinkra Fusion Kitchen"
-                text="Real flavor, rooted in culture — check out Adinkra Fusion Kitchen."
-                className="h-12 rounded-lg border-adinkra-cream/30 bg-transparent px-7 font-heading text-base uppercase tracking-wide text-adinkra-cream hover:bg-adinkra-cream/10 hover:text-adinkra-cream"
+            </Reveal>
+            <Reveal delay={0.18}>
+              <p className="mt-6 max-w-xl text-lg text-adinkra-cream-muted">
+                At {BUSINESS.name}, we blend bold flavors, fresh ingredients,
+                and cultural heritage to create unforgettable dishes that
+                nourish the body and celebrate tradition.
+              </p>
+            </Reveal>
+            <Reveal delay={0.26}>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link
+                  href="/order"
+                  className={buttonVariants({
+                    size: "lg",
+                    className:
+                      "h-12 rounded-lg bg-adinkra-green px-7 font-heading text-base uppercase tracking-wide text-adinkra-cream hover:bg-adinkra-green/90",
+                  })}
+                >
+                  View Menu
+                </Link>
+                <Link
+                  href="/order"
+                  className={buttonVariants({
+                    size: "lg",
+                    className:
+                      "h-12 rounded-lg bg-adinkra-gold px-7 font-heading text-base uppercase tracking-wide text-adinkra-ink hover:bg-adinkra-gold/90",
+                  })}
+                >
+                  Shop Sauces
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={0.14}>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-adinkra-ink-2 ring-1 ring-adinkra-cream/10">
+              <Image
+                src="/images/chef-eric-african-print.jpeg"
+                alt={`${BUSINESS.chef}, founder of ${BUSINESS.name}`}
+                fill
+                priority
+                className="object-contain"
               />
             </div>
           </Reveal>

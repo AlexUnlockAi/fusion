@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FacebookIcon, InstagramIcon } from "./social-icons";
 import { Container } from "./container";
-import { NAV_LINKS, BUSINESS } from "@/lib/nav";
+import { NAV_LINKS, SECONDARY_LINKS, BUSINESS } from "@/lib/nav";
 
 export function Footer() {
   return (
@@ -43,8 +43,8 @@ export function Footer() {
               Explore
             </h3>
             <ul className="mt-5 space-y-3 text-sm">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+              {[...NAV_LINKS, ...SECONDARY_LINKS].map((link) => (
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-adinkra-cream-muted transition-colors hover:text-adinkra-cream"

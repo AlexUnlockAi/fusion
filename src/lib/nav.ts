@@ -7,11 +7,17 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Our Story", href: "/about" },
   { label: "Menu", href: "/order" },
+  { label: "Shop", href: "/order" },
   { label: "Catering", href: "/catering" },
-  { label: "Frisco Market", href: "/frisco-fresh-market" },
+  { label: "Frisco Fresh Market", href: "/frisco-fresh-market" },
+  { label: "Contact", href: "/contact" },
+];
+
+// Real pages not shown in the primary nav (kept out to match the approved
+// header design) but still linked from the footer.
+export const SECONDARY_LINKS: NavLink[] = [
   { label: "Meal Plans", href: "/meal-plans" },
   { label: "Events", href: "/events" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const BUSINESS = {
