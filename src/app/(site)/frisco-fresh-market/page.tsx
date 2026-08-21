@@ -10,6 +10,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { CartProvider } from "@/lib/cart-context";
 import { MenuBrowser } from "@/components/site/order/menu-browser";
 import { CartDrawer } from "@/components/site/order/cart-drawer";
+import { ShareButton } from "@/components/site/share-button";
 import { BUSINESS } from "@/lib/nav";
 import { MARKET_INFO } from "@/lib/content";
 import type { MenuCategory, MenuItem } from "@/lib/types";
@@ -106,6 +107,13 @@ export default async function FriscoFreshMarketPage() {
               at the table. Add what you want to your cart and check out
               online &mdash; pickup only, pay when you get here.
             </p>
+            <div className="mt-6">
+              <ShareButton
+                title="Adinkra Fusion Kitchen — Frisco Fresh Market"
+                text="Find us at Frisco Fresh Market this weekend, or order online for pickup!"
+                className="rounded-full border-adinkra-cream/30 bg-transparent text-adinkra-cream hover:bg-adinkra-cream/10 hover:text-adinkra-cream"
+              />
+            </div>
           </Reveal>
         </Container>
       </section>

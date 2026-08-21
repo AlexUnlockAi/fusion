@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, Phone, ShoppingCart } from "lucide-react";
 import { Logo } from "./logo";
 import { Container } from "./container";
+import { FacebookIcon, InstagramIcon } from "./social-icons";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -60,6 +61,27 @@ export function Header() {
             <Phone className="size-3.5" />
             {BUSINESS.phone}
           </a>
+
+          <div className="hidden items-center gap-3 sm:flex">
+            <a
+              href={`https://instagram.com/${BUSINESS.instagram}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="text-adinkra-cream-muted transition-colors hover:text-adinkra-gold"
+            >
+              <InstagramIcon className="size-[18px]" />
+            </a>
+            <a
+              href={`https://facebook.com/${BUSINESS.facebook}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              className="text-adinkra-cream-muted transition-colors hover:text-adinkra-gold"
+            >
+              <FacebookIcon className="size-[18px]" />
+            </a>
+          </div>
 
           <Link
             href="/order"
@@ -125,20 +147,42 @@ export function Header() {
                   })}
                 </nav>
 
-                <div className="flex flex-col gap-2 text-sm text-adinkra-cream-muted sm:flex-row sm:items-center sm:justify-between">
-                  <a
-                    href={`mailto:${BUSINESS.email}`}
-                    className="hover:text-adinkra-gold transition-colors"
-                  >
-                    {BUSINESS.email}
-                  </a>
-                  <a
-                    href={`tel:${BUSINESS.phone.replace(/[^\d+]/g, "")}`}
-                    className="hover:text-adinkra-gold transition-colors"
-                  >
-                    {BUSINESS.phone}
-                  </a>
-                  <span>{BUSINESS.serviceArea}</span>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <a
+                      href={`https://instagram.com/${BUSINESS.instagram}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Instagram"
+                      className="text-adinkra-cream-muted transition-colors hover:text-adinkra-gold"
+                    >
+                      <InstagramIcon className="size-5" />
+                    </a>
+                    <a
+                      href={`https://facebook.com/${BUSINESS.facebook}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Facebook"
+                      className="text-adinkra-cream-muted transition-colors hover:text-adinkra-gold"
+                    >
+                      <FacebookIcon className="size-5" />
+                    </a>
+                  </div>
+                  <div className="flex flex-col gap-2 text-sm text-adinkra-cream-muted sm:flex-row sm:items-center sm:justify-between">
+                    <a
+                      href={`mailto:${BUSINESS.email}`}
+                      className="hover:text-adinkra-gold transition-colors"
+                    >
+                      {BUSINESS.email}
+                    </a>
+                    <a
+                      href={`tel:${BUSINESS.phone.replace(/[^\d+]/g, "")}`}
+                      className="hover:text-adinkra-gold transition-colors"
+                    >
+                      {BUSINESS.phone}
+                    </a>
+                    <span>{BUSINESS.serviceArea}</span>
+                  </div>
                 </div>
               </div>
             </SheetContent>

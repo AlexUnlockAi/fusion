@@ -5,6 +5,7 @@ import { Container } from "@/components/site/container";
 import { Kicker } from "@/components/site/kicker";
 import { Reveal } from "@/components/site/reveal";
 import { TrustBadges } from "@/components/site/trust-badges";
+import { ShareButton } from "@/components/site/share-button";
 import { buttonVariants } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/nav";
 import { GALLERY, MARKET_INFO, SPECIALTIES, TESTIMONIALS } from "@/lib/content";
@@ -80,6 +81,11 @@ export default function HomePage() {
               >
                 Shop Pepper Sauces
               </Link>
+              <ShareButton
+                title="Adinkra Fusion Kitchen"
+                text="Real flavor, rooted in culture — check out Adinkra Fusion Kitchen."
+                className="h-12 rounded-lg border-adinkra-cream/30 bg-transparent px-7 font-heading text-base uppercase tracking-wide text-adinkra-cream hover:bg-adinkra-cream/10 hover:text-adinkra-cream"
+              />
             </div>
           </Reveal>
         </Container>
