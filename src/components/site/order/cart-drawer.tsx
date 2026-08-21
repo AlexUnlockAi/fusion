@@ -19,7 +19,14 @@ import { formatCents } from "@/lib/money";
 import { getUpcomingWeekendDates } from "@/lib/dates";
 import { placeOrder } from "@/app/(site)/order/actions";
 
-type PickupInfo = { venue: string; city: string; schedule: string; hours: string };
+type PickupInfo = {
+  venue: string;
+  address: string;
+  city: string;
+  schedule: string;
+  saturdayHours: string;
+  sundayHours: string;
+};
 type DeliveryInfo = { area: string; fee_cents: number; minimum_cents: number };
 
 export function CartDrawer({
@@ -242,8 +249,9 @@ export function CartDrawer({
                 {fulfillment === "pickup" ? (
                   <div className="space-y-2">
                     <p className="text-sm text-adinkra-cream-muted">
-                      {pickup.venue}, {pickup.city} &middot; {pickup.schedule} &middot;{" "}
-                      {pickup.hours}
+                      {pickup.venue}, {pickup.address}
+                      <br />
+                      Sat {pickup.saturdayHours} &middot; Sun {pickup.sundayHours}
                     </p>
                     <Label className="text-adinkra-cream">Pickup date</Label>
                     <select

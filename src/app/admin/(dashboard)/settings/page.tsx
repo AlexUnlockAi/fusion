@@ -11,10 +11,19 @@ export default async function SettingsPage() {
 
   const pickup = (data?.find((s) => s.key === "pickup")?.value ?? {
     venue: "Frisco Fresh Market",
-    city: "Frisco, TX",
+    address: "9200 Dallas Parkway",
+    city: "Frisco, TX 75033",
     schedule: "Saturdays & Sundays",
-    hours: "10:00 AM – 4:00 PM",
-  }) as { venue: string; city: string; schedule: string; hours: string };
+    saturdayHours: "8:00 AM – 4:00 PM",
+    sundayHours: "10:00 AM – 4:00 PM",
+  }) as {
+    venue: string;
+    address: string;
+    city: string;
+    schedule: string;
+    saturdayHours: string;
+    sundayHours: string;
+  };
 
   const delivery = (data?.find((s) => s.key === "delivery")?.value ?? {
     area: "DFW Metroplex",

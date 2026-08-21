@@ -6,7 +6,7 @@ import { Kicker } from "@/components/site/kicker";
 import { Reveal } from "@/components/site/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/nav";
-import { GALLERY, SPECIALTIES, TESTIMONIALS } from "@/lib/content";
+import { GALLERY, MARKET_INFO, SPECIALTIES, TESTIMONIALS } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -72,6 +72,59 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* This Weekend */}
+      <section className="py-20 sm:py-28">
+        <Container className="grid items-center gap-10 lg:grid-cols-[1fr_0.8fr]">
+          <Reveal>
+            <Kicker>Find Us This Weekend</Kicker>
+            <h2 className="mt-4 font-heading text-4xl font-medium sm:text-5xl">
+              {MARKET_INFO.headline}
+            </h2>
+            <div className="mt-8 space-y-4">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-adinkra-gold" />
+                <div>
+                  <p className="font-medium text-adinkra-cream">
+                    {BUSINESS.pickup.venue}
+                  </p>
+                  <p className="text-sm text-adinkra-cream-muted">
+                    {MARKET_INFO.address}
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 sm:flex-row sm:gap-8">
+                <p className="text-adinkra-cream-muted">{MARKET_INFO.saturday}</p>
+                <p className="text-adinkra-cream-muted">{MARKET_INFO.sunday}</p>
+              </div>
+            </div>
+            <p className="mt-6 font-heading italic text-adinkra-gold">
+              {MARKET_INFO.tagline}
+            </p>
+            <Link
+              href="/contact"
+              className={buttonVariants({
+                size: "lg",
+                className:
+                  "mt-8 h-12 rounded-full bg-adinkra-gold px-7 text-base text-adinkra-ink hover:bg-adinkra-gold/90",
+              })}
+            >
+              Get Directions &amp; Say Hi
+              <ArrowRight className="size-4" />
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-3xl shadow-2xl shadow-black/40">
+              <Image
+                src="/images/weekend-flyer.png"
+                alt="This weekend at Frisco Fresh Market flyer"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* Our Specialty */}
       <section className="py-24 sm:py-32">
         <Container>
@@ -116,7 +169,7 @@ export default function HomePage() {
           <Reveal>
             <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl">
               <Image
-                src="/images/chef-eric.jpg"
+                src="/images/chef-eric-blue-coat.jpeg"
                 alt="Chef Eric, founder of Adinkra Fusion Kitchen"
                 fill
                 className="object-cover"
@@ -196,8 +249,10 @@ export default function HomePage() {
                     Weekend Pickup
                   </h3>
                   <p className="mt-2 text-sm text-adinkra-cream-muted">
-                    {BUSINESS.pickup.venue}, {BUSINESS.pickup.city} &mdash;{" "}
-                    {BUSINESS.pickup.schedule.toLowerCase()}.
+                    {BUSINESS.pickup.venue}, {BUSINESS.pickup.city}
+                    <br />
+                    Sat {BUSINESS.pickup.saturdayHours} &middot; Sun{" "}
+                    {BUSINESS.pickup.sundayHours}
                   </p>
                 </div>
               </Reveal>

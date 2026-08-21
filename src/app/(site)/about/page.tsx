@@ -31,7 +31,7 @@ export default function AboutPage() {
             <div className="sticky top-28 space-y-6">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/images/chef-eric.jpg"
+                  src="/images/chef-eric-african-print.jpeg"
                   alt="Chef Eric, founder of Adinkra Fusion Kitchen"
                   fill
                   className="object-cover"
@@ -39,8 +39,8 @@ export default function AboutPage() {
               </div>
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/dish1.jpeg"
-                  alt="A signature Adinkra Fusion Kitchen plate"
+                  src="/images/gallery/chef-serving-event.jpeg"
+                  alt="Chef Eric serving at a catered event"
                   fill
                   className="object-cover"
                 />

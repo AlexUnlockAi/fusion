@@ -101,9 +101,11 @@ insert into settings (key, value) values
   ('ordering_enabled', 'false'),
   ('pickup', jsonb_build_object(
     'venue', 'Frisco Fresh Market',
-    'city', 'Frisco, TX',
+    'address', '9200 Dallas Parkway',
+    'city', 'Frisco, TX 75033',
     'schedule', 'Saturdays & Sundays',
-    'hours', '10:00 AM – 4:00 PM'
+    'saturdayHours', '8:00 AM – 4:00 PM',
+    'sundayHours', '10:00 AM – 4:00 PM'
   )),
   ('delivery', jsonb_build_object(
     'area', 'DFW Metroplex',

@@ -94,7 +94,47 @@ export const MEAL_PLAN_FEATURES = [
 ];
 
 export const GALLERY = [
-  { image: "/images/dish1.jpeg", alt: "Plated fusion entree with fresh herbs" },
-  { image: "/images/dish2.jpeg", alt: "Chef Eric's catering presentation" },
-  { image: "/images/dish3.jpeg", alt: "Colorful fusion dish detail" },
+  {
+    image: "/images/gallery/dish-grilled-fish-rice.jpeg",
+    alt: "Grilled fish over black bean rice with tropical pineapple salsa",
+  },
+  {
+    image: "/images/gallery/catering-poke-cups.jpeg",
+    alt: "Ahi poke cups plated for a catering event",
+  },
+  {
+    image: "/images/gallery/dish-shrimp-steak.jpeg",
+    alt: "Surf and turf plate with shrimp, steak, and roasted vegetables",
+  },
+  {
+    image: "/images/gallery/dish-crab-cake.jpeg",
+    alt: "Crab cake with avocado over rice and mango sauce",
+  },
+  {
+    image: "/images/gallery/dish-seared-fish-veg.jpeg",
+    alt: "Seared spiced fish over roasted vegetables in a golden sauce",
+  },
+  {
+    image: "/images/gallery/chef-serving-event.jpeg",
+    alt: "Chef Eric serving a catered event",
+  },
 ];
+
+export const MEAL_PREP_GALLERY = [
+  {
+    image: "/images/gallery/mealprep-chicken.jpeg",
+    alt: "Weekly meal prep containers with jerk-style chicken, slaw, and black bean corn salad",
+  },
+  {
+    image: "/images/gallery/mealprep-ground-meat.jpeg",
+    alt: "Weekly meal prep bowls with seasoned ground meat, corn, edamame, and carrots",
+  },
+];
+
+export const MARKET_INFO = {
+  headline: "This weekend: find us at Frisco Fresh Market",
+  address: "9200 Dallas Parkway, Frisco, TX 75033",
+  saturday: "Saturday — 8:00 AM – 4:00 PM",
+  sunday: "Sunday — 10:00 AM – 4:00 PM",
+  tagline: "Support local. Eat well. Feel well.",
+};

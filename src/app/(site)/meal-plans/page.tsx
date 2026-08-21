@@ -8,7 +8,7 @@ import { Reveal } from "@/components/site/reveal";
 import { PageHero } from "@/components/site/page-hero";
 import { buttonVariants } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/nav";
-import { MEAL_PLAN_FEATURES } from "@/lib/content";
+import { MEAL_PLAN_FEATURES, MEAL_PREP_GALLERY } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Meal Plans",
@@ -40,13 +40,20 @@ export default function MealPlansPage() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl">
-              <Image
-                src="/images/dish3.jpeg"
-                alt="A nutritionist-guided fusion meal"
-                fill
-                className="object-cover"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              {MEAL_PREP_GALLERY.map((item) => (
+                <div
+                  key={item.image}
+                  className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
           </Reveal>
         </Container>

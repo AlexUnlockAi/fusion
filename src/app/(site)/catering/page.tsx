@@ -29,8 +29,8 @@ export default function CateringPage() {
           <Reveal>
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl">
               <Image
-                src="/images/dish2.jpeg"
-                alt="Catering presentation by Adinkra Fusion Kitchen"
+                src="/images/gallery/catering-poke-cups.jpeg"
+                alt="Ahi poke cups plated for a catering event"
                 fill
                 className="object-cover"
               />

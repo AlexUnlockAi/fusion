@@ -14,12 +14,21 @@ import {
 export function PickupSettingsForm({
   initial,
 }: {
-  initial: { venue: string; city: string; schedule: string; hours: string };
+  initial: {
+    venue: string;
+    address: string;
+    city: string;
+    schedule: string;
+    saturdayHours: string;
+    sundayHours: string;
+  };
 }) {
   const [venue, setVenue] = useState(initial.venue);
+  const [address, setAddress] = useState(initial.address);
   const [city, setCity] = useState(initial.city);
   const [schedule, setSchedule] = useState(initial.schedule);
-  const [hours, setHours] = useState(initial.hours);
+  const [saturdayHours, setSaturdayHours] = useState(initial.saturdayHours);
+  const [sundayHours, setSundayHours] = useState(initial.sundayHours);
   const [pending, startTransition] = useTransition();
 
   return (
@@ -30,7 +39,11 @@ export function PickupSettingsForm({
           <Input value={venue} onChange={(e) => setVenue(e.target.value)} />
         </div>
         <div className="space-y-2">
-          <Label>City</Label>
+          <Label>Street Address</Label>
+          <Input value={address} onChange={(e) => setAddress(e.target.value)} />
+        </div>
+        <div className="space-y-2">
+          <Label>City, State, Zip</Label>
           <Input value={city} onChange={(e) => setCity(e.target.value)} />
         </div>
         <div className="space-y-2">
@@ -38,8 +51,18 @@ export function PickupSettingsForm({
           <Input value={schedule} onChange={(e) => setSchedule(e.target.value)} />
         </div>
         <div className="space-y-2">
-          <Label>Hours</Label>
-          <Input value={hours} onChange={(e) => setHours(e.target.value)} />
+          <Label>Saturday Hours</Label>
+          <Input
+            value={saturdayHours}
+            onChange={(e) => setSaturdayHours(e.target.value)}
+          />
+        </div>
+        <div className="space-y-2">
+          <Label>Sunday Hours</Label>
+          <Input
+            value={sundayHours}
+            onChange={(e) => setSundayHours(e.target.value)}
+          />
         </div>
       </div>
       <Button
@@ -49,7 +72,14 @@ export function PickupSettingsForm({
         onClick={() =>
           startTransition(async () => {
             try {
-              await updatePickupSettings({ venue, city, schedule, hours });
+              await updatePickupSettings({
+                venue,
+                address,
+                city,
+                schedule,
+                saturdayHours,
+                sundayHours,
+              });
               toast.success("Pickup details saved");
             } catch {
               toast.error("Couldn't save pickup details.");

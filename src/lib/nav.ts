@@ -20,9 +20,21 @@ export const BUSINESS = {
   phone: "(575) 637-5478",
   email: "unseasonedyolk@gmail.com",
   serviceArea: "North Dallas, Fort Worth & the DFW Metroplex",
+  instagram: "adinkrafusionkitchen",
+  facebook: "adinkrafusionkitchen",
   pickup: {
     venue: "Frisco Fresh Market",
-    city: "Frisco, TX",
-    schedule: "Weekends",
+    address: "9200 Dallas Parkway",
+    city: "Frisco, TX 75033",
+    schedule: "Saturdays & Sundays",
+    saturdayHours: "8:00 AM – 4:00 PM",
+    sundayHours: "10:00 AM – 4:00 PM",
   },
+};
+
+// This coming weekend's market dates — update as needed, or wire to
+// settings once the admin can schedule market dates directly.
+export const NEXT_MARKET_DATES = {
+  saturday: "2026-08-22",
+  sunday: "2026-08-23",
 };

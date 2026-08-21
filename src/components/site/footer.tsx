@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { FacebookIcon, InstagramIcon } from "./social-icons";
 import { Container } from "./container";
 import { NAV_LINKS, BUSINESS } from "@/lib/nav";
 
@@ -88,6 +89,26 @@ export function Footer() {
                 </span>
               </li>
             </ul>
+            <div className="mt-5 flex items-center gap-4">
+              <a
+                href={`https://instagram.com/${BUSINESS.instagram}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="text-adinkra-cream-muted transition-colors hover:text-adinkra-cream"
+              >
+                <InstagramIcon className="size-5" />
+              </a>
+              <a
+                href={`https://facebook.com/${BUSINESS.facebook}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="text-adinkra-cream-muted transition-colors hover:text-adinkra-cream"
+              >
+                <FacebookIcon className="size-5" />
+              </a>
+            </div>
           </div>
         </div>
 
