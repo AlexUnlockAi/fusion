@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, ShoppingCart } from "lucide-react";
 import { Logo } from "./logo";
 import { Container } from "./container";
 import { Button } from "@/components/ui/button";
@@ -22,18 +22,52 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-adinkra-cream/10 bg-adinkra-ink/90 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
         <Logo />
+
+        <nav className="hidden lg:flex items-center gap-7 font-heading text-sm font-medium tracking-wide uppercase">
+          {NAV_LINKS.map((link) => {
+            const active =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname?.startsWith(link.href);
+            const isMarket = link.href === "/frisco-fresh-market";
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "transition-colors",
+                  isMarket
+                    ? "text-adinkra-green hover:text-adinkra-green/80"
+                    : active
+                      ? "text-adinkra-gold"
+                      : "text-adinkra-cream hover:text-adinkra-gold"
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
         <div className="flex items-center gap-4">
           <a
             href={`tel:${BUSINESS.phone.replace(/[^\d+]/g, "")}`}
-            className="hidden md:flex items-center gap-2 text-sm text-muted-foreground hover:text-adinkra-gold transition-colors"
+            className="hidden xl:flex items-center gap-2 text-sm text-adinkra-cream-muted hover:text-adinkra-gold transition-colors"
           >
             <Phone className="size-3.5" />
             {BUSINESS.phone}
           </a>
+
+          <Link
+            href="/order"
+            aria-label="Order online"
+            className="hidden sm:flex size-8 items-center justify-center rounded-lg text-adinkra-cream transition-colors hover:text-adinkra-gold"
+          >
+            <ShoppingCart className="size-5" />
+          </Link>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger

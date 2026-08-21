@@ -18,9 +18,15 @@ export function PageHero({
           <Kicker>{kicker}</Kicker>
         </Reveal>
         <Reveal delay={0.06}>
-          <h1 className="mt-5 max-w-2xl font-heading text-5xl font-medium leading-[1.05] sm:text-6xl">
+          <h1 className="mt-5 max-w-3xl font-headline text-5xl leading-[0.95] uppercase tracking-tight text-adinkra-cream sm:text-7xl">
             {title}
           </h1>
+          <span className="mt-5 flex items-center gap-2" aria-hidden>
+            <span className="size-2 rounded-full bg-adinkra-red" />
+            <span className="size-2 rounded-full bg-adinkra-gold" />
+            <span className="size-2 rounded-full bg-adinkra-gold" />
+            <span className="size-2 rounded-full bg-adinkra-green" />
+          </span>
         </Reveal>
         {description && (
           <Reveal delay={0.12}>

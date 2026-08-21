@@ -27,45 +27,57 @@ export default function HomePage() {
           <Reveal>
             <Kicker>Ghanaian &amp; African Fusion &middot; DFW Metroplex</Kicker>
           </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 max-w-3xl font-heading text-5xl leading-[1.05] font-medium text-adinkra-cream sm:text-7xl">
-              Laughter, great people, and amazing food{" "}
-              <span className="italic text-adinkra-gold">
-                without compromise.
+          <Reveal delay={0.06}>
+            <p className="mt-5 font-script text-2xl leading-tight sm:text-3xl">
+              <span className="block text-adinkra-gold">Bold Flavors.</span>
+              <span className="block text-adinkra-gold">Fresh Ingredients.</span>
+              <span className="block text-adinkra-cream">
+                Made with Culture.
               </span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-6 max-w-xl text-lg text-adinkra-cream-muted">
-              {BUSINESS.chef} blends Ghanaian and West African heritage with
-              American technique &mdash; corporate &amp; private catering,
-              nutritionist-guided meal plans, and weekend pickup across the
-              DFW Metroplex.
             </p>
           </Reveal>
-          <Reveal delay={0.24}>
+          <Reveal delay={0.12}>
+            <h1 className="mt-4 max-w-3xl font-headline text-5xl leading-[0.95] uppercase tracking-tight text-adinkra-cream sm:text-7xl">
+              Real Flavor.
+              <br />
+              Rooted in Culture.
+            </h1>
+            <span className="mt-6 flex items-center gap-2" aria-hidden>
+              <span className="size-2 rounded-full bg-adinkra-red" />
+              <span className="size-2 rounded-full bg-adinkra-gold" />
+              <span className="size-2 rounded-full bg-adinkra-gold" />
+              <span className="size-2 rounded-full bg-adinkra-green" />
+            </span>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <p className="mt-6 max-w-xl text-lg text-adinkra-cream-muted">
+              {BUSINESS.chef} blends bold flavors, fresh ingredients, and
+              cultural heritage into unforgettable dishes &mdash; corporate
+              &amp; private catering, nutritionist-guided meal plans, and
+              weekend pickup across the DFW Metroplex.
+            </p>
+          </Reveal>
+          <Reveal delay={0.26}>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/order"
                 className={buttonVariants({
                   size: "lg",
                   className:
-                    "h-12 rounded-full bg-adinkra-gold px-7 text-base text-adinkra-ink hover:bg-adinkra-gold/90",
+                    "h-12 rounded-lg bg-adinkra-green px-7 font-heading text-base uppercase tracking-wide text-adinkra-cream hover:bg-adinkra-green/90",
                 })}
               >
-                Discover Delicious Plans
-                <ArrowRight className="size-4" />
+                View Menu
               </Link>
               <Link
-                href="/contact"
+                href="/order"
                 className={buttonVariants({
-                  variant: "outline",
                   size: "lg",
                   className:
-                    "h-12 rounded-full border-adinkra-cream/30 bg-transparent px-7 text-base text-adinkra-cream hover:bg-adinkra-cream/10 hover:text-adinkra-cream",
+                    "h-12 rounded-lg bg-adinkra-gold px-7 font-heading text-base uppercase tracking-wide text-adinkra-ink hover:bg-adinkra-gold/90",
                 })}
               >
-                Reach Out to Us
+                Shop Pepper Sauces
               </Link>
             </div>
           </Reveal>

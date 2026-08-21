@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Fraunces, Inter, Anton, Caveat } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -17,6 +17,18 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const anton = Anton({
+  variable: "--font-headline",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const caveat = Caveat({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Adinkra Fusion Kitchen | Ghanaian-American Fusion, DFW",
@@ -30,7 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${inter.variable} ${anton.variable} ${caveat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         {children}
