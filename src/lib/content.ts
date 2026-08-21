@@ -84,8 +84,8 @@ export const MEAL_PLAN_FEATURES = [
     body: "Prepared fresh in small batches, with heritage flavor that never gets watered down for the sake of a diet.",
   },
   {
-    title: "Pickup or Delivery",
-    body: `Weekend pickup at ${"Frisco Fresh Market"} in Frisco, or delivery across the DFW Metroplex.`,
+    title: "Weekend Pickup",
+    body: `Order online, then pick up fresh every Saturday and Sunday at ${"Frisco Fresh Market"} in Frisco.`,
   },
   {
     title: "Dietary Accommodations",

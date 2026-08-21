@@ -27,26 +27,15 @@ type PickupInfo = {
   saturdayHours: string;
   sundayHours: string;
 };
-type DeliveryInfo = { area: string; fee_cents: number; minimum_cents: number };
 
-export function CartDrawer({
-  pickup,
-  delivery,
-}: {
-  pickup: PickupInfo;
-  delivery: DeliveryInfo;
-}) {
+export function CartDrawer({ pickup }: { pickup: PickupInfo }) {
   const cart = useCart();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<"cart" | "checkout" | "done">("cart");
-  const [fulfillment, setFulfillment] = useState<"pickup" | "delivery">("pickup");
   const [pickupDate, setPickupDate] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -56,12 +45,11 @@ export function CartDrawer({
   } | null>(null);
 
   const weekendDates = getUpcomingWeekendDates();
-  const deliveryFee = fulfillment === "delivery" ? delivery.fee_cents : 0;
-  const total = cart.subtotalCents + deliveryFee;
+  const total = cart.subtotalCents;
 
   async function handleSubmit() {
     setError(null);
-    if (fulfillment === "pickup" && !pickupDate) {
+    if (!pickupDate) {
       setError("Choose a pickup date.");
       return;
     }
@@ -70,11 +58,11 @@ export function CartDrawer({
       customerName: name,
       customerEmail: email,
       customerPhone: phone,
-      fulfillmentType: fulfillment,
-      pickupDate: fulfillment === "pickup" ? pickupDate : null,
-      deliveryAddress: fulfillment === "delivery" ? address : null,
-      deliveryCity: fulfillment === "delivery" ? city : null,
-      deliveryZip: fulfillment === "delivery" ? zip : null,
+      fulfillmentType: "pickup",
+      pickupDate,
+      deliveryAddress: null,
+      deliveryCity: null,
+      deliveryZip: null,
       notes,
       items: cart.items.map((i) => ({
         menuItemId: i.menuItemId,
@@ -140,7 +128,7 @@ export function CartDrawer({
               </p>
               <p className="mt-4 max-w-xs text-sm text-adinkra-cream-muted">
                 We&rsquo;ll reach out to confirm details. Payment is collected
-                on pickup or delivery for now.
+                on pickup.
               </p>
               <Button
                 className="mt-8 rounded-full bg-adinkra-gold text-adinkra-ink hover:bg-adinkra-gold/90"
@@ -229,68 +217,28 @@ export function CartDrawer({
               <h2 className="mt-2 font-heading text-2xl font-medium">Checkout</h2>
 
               <div className="mt-6 flex-1 space-y-5 overflow-y-auto">
-                <div className="flex gap-2 rounded-full bg-adinkra-cream/10 p-1">
-                  {(["pickup", "delivery"] as const).map((type) => (
-                    <button
-                      key={type}
-                      type="button"
-                      onClick={() => setFulfillment(type)}
-                      className={`flex-1 rounded-full py-2 text-sm font-medium capitalize transition-colors ${
-                        fulfillment === type
-                          ? "bg-adinkra-gold text-adinkra-ink"
-                          : "text-adinkra-cream-muted"
-                      }`}
-                    >
-                      {type}
-                    </button>
-                  ))}
-                </div>
-
-                {fulfillment === "pickup" ? (
-                  <div className="space-y-2">
-                    <p className="text-sm text-adinkra-cream-muted">
-                      {pickup.venue}, {pickup.address}
-                      <br />
-                      Sat {pickup.saturdayHours} &middot; Sun {pickup.sundayHours}
-                    </p>
-                    <Label className="text-adinkra-cream">Pickup date</Label>
-                    <select
-                      value={pickupDate}
-                      onChange={(e) => setPickupDate(e.target.value)}
-                      className="w-full rounded-lg border border-adinkra-cream/20 bg-transparent px-3 py-2 text-sm text-adinkra-cream"
-                    >
-                      <option value="" className="text-adinkra-ink">
-                        Select a date
+                <div className="space-y-2">
+                  <p className="text-sm text-adinkra-cream-muted">
+                    Pickup only &mdash; {pickup.venue}, {pickup.address}
+                    <br />
+                    Sat {pickup.saturdayHours} &middot; Sun {pickup.sundayHours}
+                  </p>
+                  <Label className="text-adinkra-cream">Pickup date</Label>
+                  <select
+                    value={pickupDate}
+                    onChange={(e) => setPickupDate(e.target.value)}
+                    className="w-full rounded-lg border border-adinkra-cream/20 bg-transparent px-3 py-2 text-sm text-adinkra-cream"
+                  >
+                    <option value="" className="text-adinkra-ink">
+                      Select a date
+                    </option>
+                    {weekendDates.map((d) => (
+                      <option key={d.value} value={d.value} className="text-adinkra-ink">
+                        {d.label}
                       </option>
-                      {weekendDates.map((d) => (
-                        <option key={d.value} value={d.value} className="text-adinkra-ink">
-                          {d.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    <p className="text-sm text-adinkra-cream-muted">
-                      Delivering across {delivery.area} &middot; +
-                      {formatCents(delivery.fee_cents)} delivery fee
-                    </p>
-                    <div className="space-y-2">
-                      <Label className="text-adinkra-cream">Address</Label>
-                      <Input value={address} onChange={(e) => setAddress(e.target.value)} className="border-adinkra-cream/20 bg-transparent text-adinkra-cream" />
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="space-y-2">
-                        <Label className="text-adinkra-cream">City</Label>
-                        <Input value={city} onChange={(e) => setCity(e.target.value)} className="border-adinkra-cream/20 bg-transparent text-adinkra-cream" />
-                      </div>
-                      <div className="space-y-2">
-                        <Label className="text-adinkra-cream">Zip</Label>
-                        <Input value={zip} onChange={(e) => setZip(e.target.value)} className="border-adinkra-cream/20 bg-transparent text-adinkra-cream" />
-                      </div>
-                    </div>
-                  </div>
-                )}
+                    ))}
+                  </select>
+                </div>
 
                 <div className="space-y-3 border-t border-adinkra-cream/10 pt-5">
                   <div className="space-y-2">
@@ -317,18 +265,6 @@ export function CartDrawer({
               </div>
 
               <div className="mt-6 space-y-3 border-t border-adinkra-cream/10 pt-6">
-                <div className="space-y-1 text-sm text-adinkra-cream-muted">
-                  <div className="flex justify-between">
-                    <span>Subtotal</span>
-                    <span>{formatCents(cart.subtotalCents)}</span>
-                  </div>
-                  {deliveryFee > 0 && (
-                    <div className="flex justify-between">
-                      <span>Delivery fee</span>
-                      <span>{formatCents(deliveryFee)}</span>
-                    </div>
-                  )}
-                </div>
                 <div className="flex justify-between font-heading text-lg text-adinkra-cream">
                   <span>Total</span>
                   <span>{formatCents(total)}</span>
@@ -339,7 +275,7 @@ export function CartDrawer({
                   onClick={handleSubmit}
                 >
                   {submitting && <Loader2 className="size-4 animate-spin" />}
-                  Place Order &mdash; Pay on {fulfillment === "pickup" ? "Pickup" : "Delivery"}
+                  Place Order &mdash; Pay on Pickup
                 </Button>
               </div>
             </>

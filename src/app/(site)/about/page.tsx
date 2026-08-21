@@ -65,16 +65,16 @@ export default function AboutPage() {
               <p>
                 What started as cooking for friends and church fundraisers
                 has grown into full-scale corporate and private catering,
-                alongside nutritionist-guided meal delivery for clients who
+                alongside nutritionist-guided meal plans for clients who
                 want food that tastes incredible and does right by their
                 body. Every menu is built the same way: fresh ingredients,
                 bold heritage flavor, and zero shortcuts.
               </p>
               <p>
                 Today, Chef Eric and the {BUSINESS.name} team serve{" "}
-                {BUSINESS.serviceArea} &mdash; from weekend pickup at{" "}
-                {BUSINESS.pickup.venue} in {BUSINESS.pickup.city} to
-                delivery across the metroplex.
+                {BUSINESS.serviceArea} &mdash; weekend pickup at{" "}
+                {BUSINESS.pickup.venue} in {BUSINESS.pickup.city}, order
+                online or in person.
               </p>
             </div>
 

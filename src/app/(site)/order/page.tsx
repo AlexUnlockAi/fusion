@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ChefHat, MapPin, Truck } from "lucide-react";
+import { ChefHat, MapPin } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { Container } from "@/components/site/container";
 import { Kicker } from "@/components/site/kicker";
@@ -16,7 +16,7 @@ import type { MenuCategory, MenuItem } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Order",
   description:
-    "Order from Adinkra Fusion Kitchen — weekend pickup at Frisco Fresh Market or delivery across the DFW Metroplex.",
+    "Order from Adinkra Fusion Kitchen — weekend pickup at Frisco Fresh Market.",
 };
 
 type PickupInfo = {
@@ -27,7 +27,6 @@ type PickupInfo = {
   saturdayHours: string;
   sundayHours: string;
 };
-type DeliveryInfo = { area: string; fee_cents: number; minimum_cents: number };
 
 export default async function OrderPage() {
   const supabase = await createClient();
@@ -35,7 +34,7 @@ export default async function OrderPage() {
   const { data: settingsRows } = await supabase
     .from("settings")
     .select("key, value")
-    .in("key", ["ordering_enabled", "pickup", "delivery"]);
+    .in("key", ["ordering_enabled", "pickup"]);
 
   const orderingEnabled = settingsRows?.find((s) => s.key === "ordering_enabled")?.value === true;
   const pickup = (settingsRows?.find((s) => s.key === "pickup")?.value ?? {
@@ -46,14 +45,9 @@ export default async function OrderPage() {
     saturdayHours: BUSINESS.pickup.saturdayHours,
     sundayHours: BUSINESS.pickup.sundayHours,
   }) as PickupInfo;
-  const delivery = (settingsRows?.find((s) => s.key === "delivery")?.value ?? {
-    area: BUSINESS.serviceArea,
-    fee_cents: 800,
-    minimum_cents: 0,
-  }) as DeliveryInfo;
 
   if (!orderingEnabled) {
-    return <ComingSoon pickup={pickup} delivery={delivery} />;
+    return <ComingSoon pickup={pickup} />;
   }
 
   const [{ data: categories }, { data: items }] = await Promise.all([
@@ -69,7 +63,7 @@ export default async function OrderPage() {
   const typedItems = (items ?? []) as MenuItem[];
 
   if (typedItems.length === 0) {
-    return <ComingSoon pickup={pickup} delivery={delivery} />;
+    return <ComingSoon pickup={pickup} />;
   }
 
   return (
@@ -77,25 +71,19 @@ export default async function OrderPage() {
       <PageHero
         kicker="Order"
         title="Build your order."
-        description={`Pickup at ${pickup.venue} (${pickup.schedule}) or delivery across ${delivery.area}.`}
+        description={`Pickup only, at ${pickup.venue} (${pickup.schedule}).`}
       />
       <section className="pb-32">
         <Container>
           <MenuBrowser categories={typedCategories} items={typedItems} />
         </Container>
       </section>
-      <CartDrawer pickup={pickup} delivery={delivery} />
+      <CartDrawer pickup={pickup} />
     </CartProvider>
   );
 }
 
-function ComingSoon({
-  pickup,
-  delivery,
-}: {
-  pickup: PickupInfo;
-  delivery: DeliveryInfo;
-}) {
+function ComingSoon({ pickup }: { pickup: PickupInfo }) {
   return (
     <>
       <section className="flex flex-col items-center px-6 pb-20 pt-40 text-center">
@@ -128,26 +116,15 @@ function ComingSoon({
         </Reveal>
 
         <Reveal delay={0.28}>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <div className="flex items-start gap-3 rounded-2xl bg-adinkra-ink-2/60 p-6 text-left ring-1 ring-adinkra-cream/10">
-              <MapPin className="mt-0.5 size-5 shrink-0 text-adinkra-gold" />
-              <div>
-                <p className="font-heading font-medium">Weekend Pickup</p>
-                <p className="mt-1 text-sm text-adinkra-cream-muted">
-                  {pickup.venue}, {pickup.address}
-                  <br />
-                  Sat {pickup.saturdayHours} &middot; Sun {pickup.sundayHours}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 rounded-2xl bg-adinkra-ink-2/60 p-6 text-left ring-1 ring-adinkra-cream/10">
-              <Truck className="mt-0.5 size-5 shrink-0 text-adinkra-gold" />
-              <div>
-                <p className="font-heading font-medium">DFW Delivery</p>
-                <p className="mt-1 text-sm text-adinkra-cream-muted">
-                  Across {delivery.area}
-                </p>
-              </div>
+          <div className="mt-10 flex items-start gap-3 rounded-2xl bg-adinkra-ink-2/60 p-6 text-left ring-1 ring-adinkra-cream/10">
+            <MapPin className="mt-0.5 size-5 shrink-0 text-adinkra-gold" />
+            <div>
+              <p className="font-heading font-medium">Weekend Pickup Only</p>
+              <p className="mt-1 text-sm text-adinkra-cream-muted">
+                {pickup.venue}, {pickup.address}
+                <br />
+                Sat {pickup.saturdayHours} &middot; Sun {pickup.sundayHours}
+              </p>
             </div>
           </div>
         </Reveal>

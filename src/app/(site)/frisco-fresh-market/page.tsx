@@ -17,7 +17,7 @@ import type { MenuCategory, MenuItem } from "@/lib/types";
 export const metadata: Metadata = {
   title: "Frisco Fresh Market",
   description:
-    "Order Adinkra Fusion Kitchen's market menu online — cold salads, salsas, beverages, and pepper sauces, ready for pickup at Frisco Fresh Market or delivery.",
+    "Order Adinkra Fusion Kitchen's market menu online — cold salads, salsas, beverages, and pepper sauces, ready for pickup at Frisco Fresh Market.",
 };
 
 type PickupInfo = {
@@ -28,7 +28,6 @@ type PickupInfo = {
   saturdayHours: string;
   sundayHours: string;
 };
-type DeliveryInfo = { area: string; fee_cents: number; minimum_cents: number };
 
 export default async function FriscoFreshMarketPage() {
   const supabase = await createClient();
@@ -36,7 +35,7 @@ export default async function FriscoFreshMarketPage() {
   const { data: settingsRows } = await supabase
     .from("settings")
     .select("key, value")
-    .in("key", ["ordering_enabled", "pickup", "delivery"]);
+    .in("key", ["ordering_enabled", "pickup"]);
 
   const orderingEnabled = settingsRows?.find((s) => s.key === "ordering_enabled")?.value === true;
   const pickup = (settingsRows?.find((s) => s.key === "pickup")?.value ?? {
@@ -47,11 +46,6 @@ export default async function FriscoFreshMarketPage() {
     saturdayHours: BUSINESS.pickup.saturdayHours,
     sundayHours: BUSINESS.pickup.sundayHours,
   }) as PickupInfo;
-  const delivery = (settingsRows?.find((s) => s.key === "delivery")?.value ?? {
-    area: BUSINESS.serviceArea,
-    fee_cents: 800,
-    minimum_cents: 0,
-  }) as DeliveryInfo;
 
   const [{ data: categories }, { data: items }] = orderingEnabled
     ? await Promise.all([
@@ -73,7 +67,7 @@ export default async function FriscoFreshMarketPage() {
       <PageHero
         kicker="Weekend Market"
         title="Find us at Frisco Fresh Market."
-        description="Every Saturday and Sunday at the market table — or add items below and order online for pickup or delivery any day."
+        description="Every Saturday and Sunday at the market table — or add items below and order online for pickup, pay-on-pickup, any day."
       />
 
       <section className="pb-20 sm:pb-24">
@@ -110,8 +104,7 @@ export default async function FriscoFreshMarketPage() {
             <p className="mt-6 leading-relaxed text-adinkra-cream-muted">
               Everything on this page is made in small batches and sold fresh
               at the table. Add what you want to your cart and check out
-              online &mdash; pay when you pick it up at the market or have it
-              delivered across the DFW Metroplex.
+              online &mdash; pickup only, pay when you get here.
             </p>
           </Reveal>
         </Container>
@@ -132,7 +125,7 @@ export default async function FriscoFreshMarketPage() {
               </div>
             </Container>
           </section>
-          <CartDrawer pickup={pickup} delivery={delivery} />
+          <CartDrawer pickup={pickup} />
         </CartProvider>
       ) : (
         <section className="pb-24 sm:pb-32">

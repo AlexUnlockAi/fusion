@@ -6,7 +6,7 @@ export type PlaceOrderInput = {
   customerName: string;
   customerEmail: string;
   customerPhone: string;
-  fulfillmentType: "pickup" | "delivery";
+  fulfillmentType: "pickup";
   pickupDate: string | null;
   deliveryAddress: string | null;
   deliveryCity: string | null;
@@ -28,8 +28,8 @@ export async function placeOrder(
   if (input.items.length === 0) {
     return { success: false, error: "Your cart is empty." };
   }
-  if (input.fulfillmentType === "delivery" && !input.deliveryAddress?.trim()) {
-    return { success: false, error: "A delivery address is required." };
+  if (!input.pickupDate) {
+    return { success: false, error: "Choose a pickup date." };
   }
 
   const supabase = await createClient();

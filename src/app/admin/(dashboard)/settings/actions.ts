@@ -19,19 +19,5 @@ export async function updatePickupSettings(data: {
   if (error) throw new Error(error.message);
   revalidatePath("/admin/settings");
   revalidatePath("/order");
-}
-
-export async function updateDeliverySettings(data: {
-  area: string;
-  fee_cents: number;
-  minimum_cents: number;
-}) {
-  const supabase = await createClient();
-  const { error } = await supabase
-    .from("settings")
-    .update({ value: data })
-    .eq("key", "delivery");
-  if (error) throw new Error(error.message);
-  revalidatePath("/admin/settings");
-  revalidatePath("/order");
+  revalidatePath("/frisco-fresh-market");
 }

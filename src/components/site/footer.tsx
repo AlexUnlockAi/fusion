@@ -84,7 +84,7 @@ export function Footer() {
                 <span>
                   Pickup at {BUSINESS.pickup.venue}, {BUSINESS.pickup.city}
                   <br />
-                  {BUSINESS.pickup.schedule} &middot; delivery across{" "}
+                  {BUSINESS.pickup.schedule} &middot; serving{" "}
                   {BUSINESS.serviceArea}
                 </span>
               </li>

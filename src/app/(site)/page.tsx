@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Quote, Truck } from "lucide-react";
+import { ArrowRight, MapPin, Quote, ShoppingBag } from "lucide-react";
 import { Container } from "@/components/site/container";
 import { Kicker } from "@/components/site/kicker";
 import { Reveal } from "@/components/site/reveal";
@@ -200,7 +200,7 @@ export default function HomePage() {
               Adinkra Fusion Kitchen blends Ghanaian and African flavors with
               American culinary technique &mdash; food that feels like home,
               wherever home is. {BUSINESS.chef} leads corporate and private
-              catering alongside nutritionist-guided meal delivery, cooking
+              catering alongside nutritionist-guided meal plans, cooking
               for churches, offices, and families across{" "}
               {BUSINESS.serviceArea}.
             </p>
@@ -273,13 +273,13 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={0.14}>
                 <div className="h-full rounded-2xl bg-adinkra-ink/60 p-7 ring-1 ring-adinkra-cream/10">
-                  <Truck className="size-6 text-adinkra-gold" />
+                  <ShoppingBag className="size-6 text-adinkra-gold" />
                   <h3 className="mt-4 font-heading text-lg font-medium">
-                    DFW Delivery
+                    Order Online
                   </h3>
                   <p className="mt-2 text-sm text-adinkra-cream-muted">
-                    Delivered across the DFW Metroplex &mdash; place your
-                    order online once the menu is live.
+                    Skip the line &mdash; place your order online and pay
+                    when you pick it up.
                   </p>
                 </div>
               </Reveal>
