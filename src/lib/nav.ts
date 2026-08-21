@@ -5,11 +5,11 @@ export type NavLink = {
 
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "Our Story", href: "/about" },
+  { label: "Menu", href: "/order" },
   { label: "Catering", href: "/catering" },
+  { label: "Frisco Fresh Market", href: "/frisco-fresh-market" },
   { label: "Meal Plans", href: "/meal-plans" },
-  { label: "Order", href: "/order" },
-  { label: "Frisco Market", href: "/frisco-fresh-market" },
   { label: "Events", href: "/events" },
   { label: "Contact", href: "/contact" },
 ];

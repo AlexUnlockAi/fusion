@@ -117,12 +117,12 @@ function ComingSoon({
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="relative mt-10 aspect-[3/4] w-full max-w-xs overflow-hidden rounded-3xl shadow-2xl shadow-black/40">
+          <div className="relative mt-10 aspect-[1024/1536] w-full max-w-xs overflow-hidden rounded-3xl bg-adinkra-ink-2 shadow-2xl shadow-black/40">
             <Image
               src="/images/weekend-flyer.png"
               alt="This weekend at Frisco Fresh Market flyer"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </Reveal>

@@ -79,12 +79,12 @@ export default async function FriscoFreshMarketPage() {
       <section className="pb-20 sm:pb-24">
         <Container className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl ring-1 ring-adinkra-cream/10">
+            <div className="relative aspect-[1545/2000] w-full overflow-hidden rounded-3xl bg-adinkra-ink-2 ring-1 ring-adinkra-cream/10">
               <Image
                 src="/images/menu-cold-salads-salsas-beverages.png"
                 alt="Adinkra Fusion Kitchen market menu — cold salads, salsas, and beverages"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </Reveal>

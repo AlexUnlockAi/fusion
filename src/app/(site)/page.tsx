@@ -4,6 +4,7 @@ import { ArrowRight, MapPin, Quote, Truck } from "lucide-react";
 import { Container } from "@/components/site/container";
 import { Kicker } from "@/components/site/kicker";
 import { Reveal } from "@/components/site/reveal";
+import { TrustBadges } from "@/components/site/trust-badges";
 import { buttonVariants } from "@/components/ui/button";
 import { BUSINESS } from "@/lib/nav";
 import { GALLERY, MARKET_INFO, SPECIALTIES, TESTIMONIALS } from "@/lib/content";
@@ -84,6 +85,8 @@ export default function HomePage() {
         </Container>
       </section>
 
+      <TrustBadges />
+
       {/* This Weekend */}
       <section className="py-20 sm:py-28">
         <Container className="grid items-center gap-10 lg:grid-cols-[1fr_0.8fr]">
@@ -125,12 +128,12 @@ export default function HomePage() {
             </Link>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-3xl shadow-2xl shadow-black/40">
+            <div className="relative mx-auto aspect-[1024/1536] w-full max-w-sm overflow-hidden rounded-3xl bg-adinkra-ink-2 shadow-2xl shadow-black/40">
               <Image
                 src="/images/weekend-flyer.png"
                 alt="This weekend at Frisco Fresh Market flyer"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
           </Reveal>
