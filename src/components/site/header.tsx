@@ -24,10 +24,10 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-adinkra-cream/10 bg-adinkra-ink/90 backdrop-blur-md">
-      <Container className="flex h-20 items-center justify-between">
+      <Container className="flex h-20 max-w-[90rem] items-center justify-between gap-4">
         <Logo />
 
-        <nav className="hidden xl:flex items-center gap-6 font-heading text-[0.8rem] font-medium uppercase">
+        <nav className="hidden 2xl:flex items-center gap-5 font-heading text-[0.75rem] font-medium uppercase">
           {NAV_LINKS.map((link) => {
             const active =
               link.href === "/"
@@ -56,7 +56,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <a
             href={`tel:${BUSINESS.phone.replace(/[^\d+]/g, "")}`}
-            className="hidden xl:flex items-center gap-2 text-sm text-adinkra-cream-muted hover:text-adinkra-gold transition-colors"
+            className="hidden 2xl:flex items-center gap-2 text-sm text-adinkra-cream-muted hover:text-adinkra-gold transition-colors"
           >
             <Phone className="size-3.5" />
             {BUSINESS.phone}
@@ -98,7 +98,7 @@ export function Header() {
                   variant="outline"
                   size="icon"
                   aria-label="Open menu"
-                  className="xl:hidden border-adinkra-cream/20 bg-transparent hover:bg-adinkra-cream/10 hover:text-adinkra-gold"
+                  className="2xl:hidden border-adinkra-cream/20 bg-transparent hover:bg-adinkra-cream/10 hover:text-adinkra-gold"
                 />
               }
             >
