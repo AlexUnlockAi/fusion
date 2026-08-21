@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone, ShoppingCart, User } from "lucide-react";
+import { Menu, Phone, ShoppingCart } from "lucide-react";
 import { Logo } from "./logo";
 import { Container } from "./container";
 import { FacebookIcon, InstagramIcon } from "./social-icons";
@@ -36,7 +36,7 @@ export function Header() {
             const isMarket = link.href === "/frisco-fresh-market";
             return (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className={cn(
                   "transition-colors",
@@ -84,14 +84,6 @@ export function Header() {
           </div>
 
           <Link
-            href="/admin/login"
-            aria-label="Admin login"
-            className="hidden sm:flex size-8 items-center justify-center rounded-lg text-adinkra-cream transition-colors hover:text-adinkra-gold"
-          >
-            <User className="size-5" />
-          </Link>
-
-          <Link
             href="/order"
             aria-label="Order online"
             className="hidden sm:flex size-8 items-center justify-center rounded-lg text-adinkra-cream transition-colors hover:text-adinkra-gold"
@@ -135,7 +127,7 @@ export function Header() {
                         : pathname?.startsWith(link.href);
                     return (
                       <Link
-                        key={link.label}
+                        key={link.href}
                         href={link.href}
                         onClick={() => setOpen(false)}
                         className={cn(
